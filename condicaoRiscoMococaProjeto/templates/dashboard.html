@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Segurança do Trabalho</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="{% static 'logo/Logo_da_Mococa.png' %}" alt="Logo" class="logo-img"> 
+            <div class="logo-text">
+                <strong>Segurança do Trabalho</strong>
+                <span>Sistema de Gestão de Rotas</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link active">
+                <i class="ri-layout-grid-fill"></i> 
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="ri-calendar-event-line"></i> 
+                <span>Agendar Rota</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="ri-map-pin-2-line"></i> 
+                <span>Painel de Rotas</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="ri-bar-chart-box-line"></i> 
+                <span>Dashboard Power BI</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class="ri-file-list-line"></i> 
+                <span>Condição de Risco</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-link">
+                <i class="ri-settings-4-line"></i> 
+                <span>Configurações</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+            <div class="welcome-text">
+                <h1>Olá, {{ request.user.first_name|default:"USUÁRIO"|upper }}! 👋</h1>
+                <p>Bem-vindo ao Sistema de Gestão de Rotas de Segurança do Trabalho</p>
+            </div>
+            <div class="user-profile">
+                <div class="avatar-circle">
+                    {{ request.user.first_name|slice:":1"|default:"A"|upper }}{{ request.user.last_name|slice:":1"|default:"L"|upper }}
+                </div>
+                
+                <div class="user-info">
+                    <span class="user-name">{{ request.user.get_full_name|default:"Adriel Luiz Martins Dias"|upper }}</span>
+                    <span class="user-role">{{ cargoUser|default:"Colaborador" }}</span> 
+                </div>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-title">Total de Rotas</span>
+                    <strong class="stat-value">1</strong>
+                </div>
+                <div class="stat-icon-box">
+                    <i class="ri-map-pin-line"></i>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-title">Agendadas</span>
+                    <strong class="stat-value">0</strong>
+                </div>
+                <div class="stat-icon-box">
+                    <i class="ri-calendar-line"></i>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-title">Em Andamento</span>
+                    <strong class="stat-value">0</strong>
+                </div>
+                <div class="stat-icon-box">
+                    <i class="ri-time-line"></i>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-content">
+                    <span class="stat-title">Concluídas</span>
+                    <strong class="stat-value">1</strong>
+                </div>
+                <div class="stat-icon-box">
+                    <i class="ri-check-double-line"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <h2 class="section-title">Ações Rápidas</h2>
+            
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon blue">
+                        <i class="ri-calendar-event-fill"></i>
+                    </div>
+                    <div class="action-text">
+                        <h3>Agendar Rota</h3>
+                        <p>Crie um novo agendamento de rota</p>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon white">
+                        <i class="ri-map-pin-2-line"></i>
+                    </div>
+                    <div class="action-text">
+                        <h3>Painel de Rotas</h3>
+                        <p>Visualize todas as rotas agendadas</p>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon white">
+                        <i class="ri-bar-chart-grouped-line"></i>
+                    </div>
+                    <div class="action-text">
+                        <h3>Dashboard Power BI</h3>
+                        <p>Acesse os relatórios analíticos</p>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon white">
+                        <i class="ri-file-text-line"></i>
+                    </div>
+                    <div class="action-text">
+                        <h3>Condição de Risco</h3>
+                        <p>Consulte a planilha de riscos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Próximas Rotas</h2>
+                    <p class="section-subtitle">Rotas agendadas recentemente</p>
+                </div>
+                <button class="btn-link">Ver Todas <i class="ri-arrow-right-line"></i></button>
+            </div>
+
+            <div class="routes-list">
+                <div class="route-item">
+                    <div class="route-date">
+                        <span class="day">05</span>
+                        <span class="month">fev.</span>
+                    </div>
+                    <div class="route-info">
+                        <strong>Almoxerifado</strong>
+                        <span>adad • 06:29</span>
+                    </div>
+                    <div class="route-status done">
+                        Concluída
+                    </div>
+                </div>
+                </div>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>

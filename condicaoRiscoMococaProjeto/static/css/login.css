@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f4f7fb, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.logo img {
+    width: 90px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0a1f44;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #6c7a92;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.secure {
+    font-size: 14px;
+    color: #1f4fd8;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.tabs {
+    display: flex;
+    background: #f1f4f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 4px;
+}
+
+.tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #6c7a92;
+}
+
+.tab.active {
+    background: #ffffff;
+    color: #0a1f44;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.field {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.field label {
+    font-size: 13px;
+    color: #0a1f44;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.field input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dbe1ec;
+    font-size: 14px;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: #1f4fd8;
+}
+
+.btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #0a2f7a;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #08306b;
+}
+
+.error {
+    background: #ffe5e5;
+    color: #b00020;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #9aa4b2;
+}
