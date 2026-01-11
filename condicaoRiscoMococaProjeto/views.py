@@ -6,8 +6,12 @@ from condicaoRiscoMococaProjeto.models import FuncionarioProfile
 
 @login_required(login_url='/login/')
 def dashboard(request):
-    instanceFuncionario = FuncionarioProfile.objects.get(user=request.user) if request.user.is_authenticated else None 
-    cargoUser = instanceFuncionario.cargo.nome
-    
+    if request.user.is_superuser:
+        cargoUser = "Administrador"
+    else:
+        instanceFuncionario = FuncionarioProfile.objects.get(user=request.user)
+        cargoUser = instanceFuncionario.cargo.nome
+
     return render(request, 'dashboard.html', {
-        'cargoUser': cargoUser})
+        'cargoUser': cargoUser
+    }) 
